@@ -10,7 +10,8 @@ build/
 .env
 .env.local
 .env.*.local
-
+.env.*.local
+!.env.example
 # Logs
 logs/
 *.log
@@ -41,7 +42,3 @@ Thumbs.db
 # Test coverage
 coverage/
 
-
-.env
-.env.local
-.env.*.local
