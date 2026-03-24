@@ -1,5 +1,16 @@
-// Types derived from the .ecomp file format specification
+/**
+ * .ecomp File Format Types
+ *
+ * These types mirror the JSON schema of `.ecomp` files — the declarative
+ * component format used by Thinko Cordo IA. Each `.ecomp` file describes
+ * one electronic component (metadata, SVG visual, electrical properties,
+ * pin layout, simulation model, and state rules).
+ *
+ * Security: .ecomp files contain NO executable code. SVG data is sanitized
+ * on load. Components are added by dropping a `.ecomp` file in `/components/`.
+ */
 
+/** Root structure of a .ecomp JSON file. */
 export interface ECompFile {
   ecomp_version: string;
   id: string;
