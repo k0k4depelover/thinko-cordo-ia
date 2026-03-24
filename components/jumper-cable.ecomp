@@ -1,0 +1,54 @@
+{
+  "ecomp_version": "1.0.0",
+  "id": "jumper-cable",
+  "name": "Jumper Cable",
+  "description": "Standard male-to-male jumper wire for breadboard connections.",
+  "category": "connector/wire",
+  "tags": ["jumper", "wire", "cable", "connector", "breadboard"],
+  "author": "thinko-core",
+  "license": "MIT",
+  "version": "1.0.0",
+
+  "visual": {
+    "type": "svg_inline",
+    "data": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 20'><rect x='0' y='7' width='10' height='6' rx='1' fill='#888'/><line x1='10' y1='10' x2='70' y2='10' stroke='#3388ff' stroke-width='3' stroke-linecap='round'/><rect x='70' y='7' width='10' height='6' rx='1' fill='#888'/></svg>",
+    "width": 80,
+    "height": 20,
+    "states": {
+      "off": { "opacity": 1.0 },
+      "on": { "opacity": 1.0 }
+    }
+  },
+
+  "electrical": {
+    "type": "wire",
+    "properties": {
+      "resistance": { "value": 0.001, "unit": "Ω" }
+    },
+    "can_burn": false,
+    "burn_conditions": []
+  },
+
+  "pins": [
+    {
+      "id": "end1",
+      "label": "End 1",
+      "position": { "x": 0, "y": 10 },
+      "direction": "left",
+      "electrical_type": "passive"
+    },
+    {
+      "id": "end2",
+      "label": "End 2",
+      "position": { "x": 80, "y": 10 },
+      "direction": "right",
+      "electrical_type": "passive"
+    }
+  ],
+
+  "simulation": {
+    "model": "ideal_wire",
+    "parameters": {},
+    "state_rules": []
+  }
+}

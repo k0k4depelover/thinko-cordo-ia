@@ -1,0 +1,62 @@
+{
+  "ecomp_version": "1.0.0",
+  "id": "battery-9v",
+  "name": "9V Battery",
+  "description": "Standard 9-volt battery. Provides constant DC voltage.",
+  "category": "power/source",
+  "tags": ["battery", "power", "voltage", "source", "9v"],
+  "author": "thinko-core",
+  "license": "MIT",
+  "version": "1.0.0",
+
+  "visual": {
+    "type": "svg_inline",
+    "data": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 80'><rect x='10' y='20' width='40' height='55' rx='3' fill='#2d2d2d' stroke='#555' stroke-width='1.5'/><rect x='20' y='10' width='8' height='12' rx='1' fill='#cc3333'/><rect x='32' y='14' width='6' height='8' rx='1' fill='#3366cc'/><text x='30' y='52' text-anchor='middle' fill='#fff' font-size='10' font-family='sans-serif'>9V</text><text x='24' y='9' text-anchor='middle' fill='#cc3333' font-size='9' font-weight='bold'>+</text><text x='35' y='9' text-anchor='middle' fill='#3366cc' font-size='9' font-weight='bold'>-</text></svg>",
+    "width": 60,
+    "height": 80,
+    "states": {
+      "off": { "opacity": 1.0 },
+      "on": { "opacity": 1.0 }
+    }
+  },
+
+  "electrical": {
+    "type": "voltage_source",
+    "properties": {
+      "voltage": { "value": 9.0, "unit": "V" },
+      "max_current": { "value": 0.5, "unit": "A" }
+    },
+    "can_burn": false,
+    "burn_conditions": []
+  },
+
+  "pins": [
+    {
+      "id": "positive",
+      "label": "Positive (+)",
+      "position": { "x": 24, "y": 0 },
+      "direction": "top",
+      "electrical_type": "power"
+    },
+    {
+      "id": "negative",
+      "label": "Negative (-)",
+      "position": { "x": 35, "y": 0 },
+      "direction": "top",
+      "electrical_type": "ground"
+    }
+  ],
+
+  "simulation": {
+    "model": "ideal_voltage_source",
+    "parameters": {
+      "voltage": 9.0
+    },
+    "state_rules": [
+      {
+        "condition": { "current_through": { "gt": 0 } },
+        "visual_state": "on"
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "ecomp_version": "1.0.0",
+  "id": "protoboard-half",
+  "name": "Half-size Protoboard",
+  "description": "Half-size solderless breadboard with 30 rows of 5-hole groups and 2 power rails.",
+  "category": "board/breadboard",
+  "tags": ["protoboard", "breadboard", "board", "prototype"],
+  "author": "thinko-core",
+  "license": "MIT",
+  "version": "1.0.0",
+
+  "visual": {
+    "type": "svg_inline",
+    "data": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'><rect x='0' y='0' width='200' height='120' rx='4' fill='#f5f5f0' stroke='#ccc' stroke-width='1'/><rect x='5' y='8' width='190' height='12' rx='2' fill='#ffe0e0' opacity='0.5'/><rect x='5' y='100' width='190' height='12' rx='2' fill='#e0e0ff' opacity='0.5'/><line x1='5' y1='14' x2='195' y2='14' stroke='#cc3333' stroke-width='0.5' opacity='0.5'/><line x1='5' y1='106' x2='195' y2='106' stroke='#3333cc' stroke-width='0.5' opacity='0.5'/><g fill='#666' opacity='0.6'><circle cx='15' cy='35' r='1.5'/><circle cx='25' cy='35' r='1.5'/><circle cx='35' cy='35' r='1.5'/><circle cx='45' cy='35' r='1.5'/><circle cx='55' cy='35' r='1.5'/><circle cx='15' cy='45' r='1.5'/><circle cx='25' cy='45' r='1.5'/><circle cx='35' cy='45' r='1.5'/><circle cx='45' cy='45' r='1.5'/><circle cx='55' cy='45' r='1.5'/><circle cx='15' cy='55' r='1.5'/><circle cx='25' cy='55' r='1.5'/><circle cx='35' cy='55' r='1.5'/><circle cx='45' cy='55' r='1.5'/><circle cx='55' cy='55' r='1.5'/><circle cx='15' cy='75' r='1.5'/><circle cx='25' cy='75' r='1.5'/><circle cx='35' cy='75' r='1.5'/><circle cx='45' cy='75' r='1.5'/><circle cx='55' cy='75' r='1.5'/><circle cx='15' cy='85' r='1.5'/><circle cx='25' cy='85' r='1.5'/><circle cx='35' cy='85' r='1.5'/><circle cx='45' cy='85' r='1.5'/><circle cx='55' cy='85' r='1.5'/></g><text x='100' y='62' text-anchor='middle' fill='#bbb' font-size='8' font-family='sans-serif'>PROTOBOARD</text></svg>",
+    "width": 200,
+    "height": 120,
+    "states": {
+      "off": { "opacity": 1.0 }
+    }
+  },
+
+  "electrical": {
+    "type": "passive_board",
+    "properties": {},
+    "can_burn": false,
+    "burn_conditions": []
+  },
+
+  "pins": [
+    { "id": "pwr_pos_1", "label": "Power Rail +", "position": { "x": 15, "y": 14 }, "direction": "top", "electrical_type": "passive" },
+    { "id": "pwr_pos_2", "label": "Power Rail +", "position": { "x": 55, "y": 14 }, "direction": "top", "electrical_type": "passive" },
+    { "id": "pwr_pos_3", "label": "Power Rail +", "position": { "x": 95, "y": 14 }, "direction": "top", "electrical_type": "passive" },
+    { "id": "pwr_neg_1", "label": "Power Rail -", "position": { "x": 15, "y": 106 }, "direction": "bottom", "electrical_type": "passive" },
+    { "id": "pwr_neg_2", "label": "Power Rail -", "position": { "x": 55, "y": 106 }, "direction": "bottom", "electrical_type": "passive" },
+    { "id": "pwr_neg_3", "label": "Power Rail -", "position": { "x": 95, "y": 106 }, "direction": "bottom", "electrical_type": "passive" },
+    { "id": "r1_a", "label": "Row 1A", "position": { "x": 15, "y": 35 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r1_b", "label": "Row 1B", "position": { "x": 25, "y": 35 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r1_c", "label": "Row 1C", "position": { "x": 35, "y": 35 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r1_d", "label": "Row 1D", "position": { "x": 45, "y": 35 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r1_e", "label": "Row 1E", "position": { "x": 55, "y": 35 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r2_a", "label": "Row 2A", "position": { "x": 15, "y": 45 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r2_b", "label": "Row 2B", "position": { "x": 25, "y": 45 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r2_c", "label": "Row 2C", "position": { "x": 35, "y": 45 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r2_d", "label": "Row 2D", "position": { "x": 45, "y": 45 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r2_e", "label": "Row 2E", "position": { "x": 55, "y": 45 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r3_a", "label": "Row 3A", "position": { "x": 15, "y": 55 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r3_b", "label": "Row 3B", "position": { "x": 25, "y": 55 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r3_c", "label": "Row 3C", "position": { "x": 35, "y": 55 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r3_d", "label": "Row 3D", "position": { "x": 45, "y": 55 }, "direction": "left", "electrical_type": "passive" },
+    { "id": "r3_e", "label": "Row 3E", "position": { "x": 55, "y": 55 }, "direction": "left", "electrical_type": "passive" }
+  ],
+
+  "simulation": {
+    "model": "protoboard",
+    "parameters": {},
+    "state_rules": []
+  }
+}

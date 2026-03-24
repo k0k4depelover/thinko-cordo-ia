@@ -1,0 +1,78 @@
+{
+  "ecomp_version": "1.0.0",
+  "id": "led-standard-red",
+  "name": "Red LED",
+  "description": "Standard 5mm red LED. Forward voltage 1.8-2.2V, max current 20mA.",
+  "category": "output/indicator",
+  "tags": ["led", "light", "indicator", "output", "red"],
+  "author": "thinko-core",
+  "license": "MIT",
+  "version": "1.0.0",
+
+  "visual": {
+    "type": "svg_inline",
+    "data": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 60'><line x1='20' y1='0' x2='20' y2='15' stroke='#999' stroke-width='2'/><line x1='20' y1='45' x2='20' y2='60' stroke='#999' stroke-width='2'/><polygon points='8,35 32,35 20,18' fill='#cc3333' stroke='#aa2222' stroke-width='1.5'/><line x1='8' y1='35' x2='32' y2='35' stroke='#aa2222' stroke-width='2'/><line x1='14' y1='12' x2='8' y2='6' stroke='#ff6666' stroke-width='1' opacity='0.6'/><line x1='8' y1='6' x2='10' y2='10' stroke='#ff6666' stroke-width='1' opacity='0.6'/><line x1='26' y1='12' x2='32' y2='6' stroke='#ff6666' stroke-width='1' opacity='0.6'/><line x1='32' y1='6' x2='30' y2='10' stroke='#ff6666' stroke-width='1' opacity='0.6'/><text x='20' y='55' text-anchor='middle' fill='#999' font-size='6'>+  -</text></svg>",
+    "width": 40,
+    "height": 60,
+    "states": {
+      "off": { "opacity": 0.5 },
+      "on": { "fill": "#ff0000", "opacity": 1.0, "glow": true },
+      "burned": { "fill": "#333333", "opacity": 0.7 }
+    }
+  },
+
+  "electrical": {
+    "type": "diode",
+    "properties": {
+      "forward_voltage": { "value": 2.0, "unit": "V", "min": 1.8, "max": 2.2 },
+      "max_forward_current": { "value": 0.020, "unit": "A" },
+      "max_reverse_voltage": { "value": 5.0, "unit": "V" },
+      "typical_current": { "value": 0.015, "unit": "A" }
+    },
+    "can_burn": true,
+    "burn_conditions": [
+      { "parameter": "forward_current", "threshold": 0.030, "unit": "A" },
+      { "parameter": "reverse_voltage", "threshold": 5.0, "unit": "V" }
+    ]
+  },
+
+  "pins": [
+    {
+      "id": "anode",
+      "label": "Anode (+)",
+      "position": { "x": 20, "y": 0 },
+      "direction": "top",
+      "electrical_type": "anode"
+    },
+    {
+      "id": "cathode",
+      "label": "Cathode (-)",
+      "position": { "x": 20, "y": 60 },
+      "direction": "bottom",
+      "electrical_type": "cathode"
+    }
+  ],
+
+  "simulation": {
+    "model": "ideal_diode",
+    "parameters": {
+      "vf": 2.0,
+      "rs": 0.5
+    },
+    "state_rules": [
+      {
+        "condition": { "current_through": { "gt": 0.001 } },
+        "visual_state": "on"
+      },
+      {
+        "condition": { "current_through": { "lte": 0.001 } },
+        "visual_state": "off"
+      },
+      {
+        "condition": { "current_through": { "gt": 0.030 } },
+        "visual_state": "burned",
+        "event": "component_burned"
+      }
+    ]
+  }
+}

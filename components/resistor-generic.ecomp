@@ -1,0 +1,70 @@
+{
+  "ecomp_version": "1.0.0",
+  "id": "resistor-generic",
+  "name": "Resistor",
+  "description": "Generic through-hole resistor. Default 330 ohms, value adjustable.",
+  "category": "passive/resistor",
+  "tags": ["resistor", "passive", "resistance", "ohm"],
+  "author": "thinko-core",
+  "license": "MIT",
+  "version": "1.0.0",
+
+  "visual": {
+    "type": "svg_inline",
+    "data": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 30'><line x1='0' y1='15' x2='15' y2='15' stroke='#666' stroke-width='2'/><polygon points='15,15 20,5 30,25 40,5 50,25 60,5 65,15' fill='none' stroke='#d4a06a' stroke-width='2.5'/><line x1='65' y1='15' x2='80' y2='15' stroke='#666' stroke-width='2'/><rect x='22' y='7' width='4' height='16' fill='#ff8c00' opacity='0.8'/><rect x='30' y='7' width='4' height='16' fill='#ff8c00' opacity='0.8'/><rect x='38' y='7' width='4' height='16' fill='#8B4513' opacity='0.8'/><rect x='54' y='7' width='4' height='16' fill='#DAA520' opacity='0.8'/></svg>",
+    "width": 80,
+    "height": 30,
+    "states": {
+      "off": { "opacity": 1.0 },
+      "on": { "opacity": 1.0 },
+      "burned": { "fill": "#333", "opacity": 0.6 }
+    }
+  },
+
+  "electrical": {
+    "type": "resistor",
+    "properties": {
+      "resistance": { "value": 330, "unit": "Ω", "min": 1, "max": 10000000 },
+      "max_power": { "value": 0.25, "unit": "W" },
+      "tolerance": { "value": 5, "unit": "%" }
+    },
+    "can_burn": true,
+    "burn_conditions": [
+      { "parameter": "power", "threshold": 0.25, "unit": "W" }
+    ]
+  },
+
+  "pins": [
+    {
+      "id": "pin1",
+      "label": "Pin 1",
+      "position": { "x": 0, "y": 15 },
+      "direction": "left",
+      "electrical_type": "passive"
+    },
+    {
+      "id": "pin2",
+      "label": "Pin 2",
+      "position": { "x": 80, "y": 15 },
+      "direction": "right",
+      "electrical_type": "passive"
+    }
+  ],
+
+  "simulation": {
+    "model": "ideal_resistor",
+    "parameters": {
+      "resistance": 330
+    },
+    "state_rules": [
+      {
+        "condition": { "current_through": { "gt": 0.0001 } },
+        "visual_state": "on"
+      },
+      {
+        "condition": { "current_through": { "lte": 0.0001 } },
+        "visual_state": "off"
+      }
+    ]
+  }
+}
